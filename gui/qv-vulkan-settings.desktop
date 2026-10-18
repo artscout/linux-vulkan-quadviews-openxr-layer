@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Quad Views for Vulkan
+Comment=Settings of the OpenXR quad views layer (foveated rendering)
+Exec=qv-vulkan-settings
+Icon=preferences-desktop-display
+Categories=Settings;Game;
