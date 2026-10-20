@@ -10,6 +10,12 @@ at full density where you look. The layer composes the two views of each eye int
 an ordinary stereo frame. With eye tracking the focus follows the gaze; without it, it sits in the middle of the
 field (fixed foveated rendering), which already saves most of the pixels.
 
+First target: the native Linux build of Falcon BMS (Vulkan, quad views in its OpenXR mode 3).
+
+**Status:** works in a headset: Falcon BMS (native Linux, Vulkan) under SteamVR on a Pimax Crystal Super, with eye
+tracking (the gaze through SteamVR's `XR_EXT_eye_gaze_interaction`), October 2026. The end-to-end tests run against a
+test runtime (see Tests)
+
 ## Why another layer
 
 [Quad-Views-Foveated](https://github.com/mbucchia/Quad-Views-Foveated) (Matthieu Bucchianeri) and
