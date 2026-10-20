@@ -10,11 +10,8 @@ at full density where you look. The layer composes the two views of each eye int
 an ordinary stereo frame. With eye tracking the focus follows the gaze; without it, it sits in the middle of the
 field (fixed foveated rendering), which already saves most of the pixels.
 
-First target: the native Linux build of Falcon BMS (Vulkan, quad views in its OpenXR mode 3).
-
-**Status:** works in a headset: Falcon BMS (native Linux, Vulkan) under SteamVR on a Pimax Crystal Super, with eye
-tracking (the gaze through SteamVR's `XR_EXT_eye_gaze_interaction`), October 2026. The end-to-end tests run against a
-test runtime (see Tests)
+**Status:** works in a headset under SteamVR on a Pimax Crystal Super, with eye tracking (the gaze through SteamVR's
+`XR_EXT_eye_gaze_interaction`), October 2026. The end-to-end tests run against a test runtime (see Tests)
 
 ## Why another layer
 
@@ -94,10 +91,9 @@ shows under "Last game"). `QV_VULKAN_LOG_STDERR=1` also prints to stderr.
 `ctest` runs:
 
 - `common`: settings, profiles, the tangent-space geometry, the gaze filter;
-- `e2e`: a game that uses quad views like Falcon BMS (Vulkan, foveated rendering, its own gaze action), the real
-  OpenXR loader, the layer from the build tree, and a fake runtime with a scripted gaze that reads back what reaches
-  it. It checks the views' sizes, the focus position with and without the gaze, and the composed pixels (focus,
-  periphery, where the blend is half way), in UNORM and sRGB; and that a stereo game passes through untouched;
+- `e2e`: a game that uses quad viewsб the real OpenXR loader, the layer from the build tree, and a fake runtime with
+   a scripted gaze that reads back what reaches it. It checks the views' sizes, the focus position with and without the gaze,
+   and the composed pixels (focus, periphery, where the blend is half way), in UNORM and sRGB; and that a stereo game passes through untouched;
 - `e2e_validation`: the same under the Khronos validation layer with synchronisation checks; any message fails.
 
 The end-to-end tests run on lavapipe (Mesa's CPU Vulkan), so they never touch the GPU.
