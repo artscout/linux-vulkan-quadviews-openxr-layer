@@ -3,26 +3,18 @@
 Quad views for Vulkan games on Linux.
 
 An OpenXR API layer that gives Vulkan games **quad views** (`XR_VARJO_quad_views`) and **eye-tracked foveated
-rendering** (`XR_VARJO_foveated_rendering`) on SteamVR on Linux. Plus a
-Qt settings app.
+rendering** (`XR_VARJO_foveated_rendering`) on SteamVR on Linux. Plus a Qt settings app.
 
 A game with quad views renders four views: a wide view per eye at low pixel density, and a small focus view per eye
 at full density where you look. The layer composes the two views of each eye into one image and hands the runtime
 an ordinary stereo frame. With eye tracking the focus follows the gaze; without it, it sits in the middle of the
 field (fixed foveated rendering), which already saves most of the pixels.
 
-First target: the native Linux build of Falcon BMS (Vulkan, quad views in its OpenXR mode 3).
-
-**Status:** works in a headset: Falcon BMS (native Linux, Vulkan) under SteamVR on a Pimax Crystal Super, with eye
-tracking (the gaze through SteamVR's `XR_EXT_eye_gaze_interaction`), October 2026. The end-to-end tests run against a
-test runtime (see Tests).
-
 ## Why another layer
 
 [Quad-Views-Foveated](https://github.com/mbucchia/Quad-Views-Foveated) (Matthieu Bucchianeri) and
-[VectorXR](https://github.com/DienerTech/vectorxr) do this on Windows, and both compose only Direct3D 11 games. There
-was nothing for Vulkan, and nothing for Linux. This layer is written from scratch for Vulkan; the design follows
-Quad-Views-Foveated, with these differences:
+[VectorXR](https://github.com/DienerTech/vectorxr) do this on Windows, and both compose only Direct3D 11 games. 
+This layer is written from scratch for Vulkan; the design follows Quad-Views-Foveated, with these differences:
 
 | | qv-vulkan |
 |---|---|
@@ -84,7 +76,7 @@ for one game. Uninstall: delete the three installed files.
 
 The layer reads the gaze through the runtime's `XR_EXT_eye_gaze_interaction`. Monado offers it for headsets whose
 driver has eye tracking. SteamVR on Linux offers it only where a driver feeds it (tested: the Crystal Super's eye
-tracker through CustomHeadsetOpenVR); without it the layer uses the fixed area. The game's own use of the gaze (Falcon BMS uses it too) keeps working.
+tracker through CustomHeadsetOpenVR); without it the layer uses the fixed area. The game's own use of the gaze keeps working.
 
 ## Logs
 
