@@ -3,7 +3,7 @@
 Quad views for Vulkan games on Linux.
 
 An OpenXR API layer that gives Vulkan games **quad views** (`XR_VARJO_quad_views`) and **eye-tracked foveated
-rendering** (`XR_VARJO_foveated_rendering`) on runtimes that only do stereo: SteamVR and Monado on Linux. Plus a
+rendering** (`XR_VARJO_foveated_rendering`) on SteamVR on Linux. Plus a
 Qt settings app.
 
 A game with quad views renders four views: a wide view per eye at low pixel density, and a small focus view per eye
